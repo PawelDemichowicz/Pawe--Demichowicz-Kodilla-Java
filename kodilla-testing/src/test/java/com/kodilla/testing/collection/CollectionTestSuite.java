@@ -17,13 +17,12 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList()
     {
         //Given
-        OddNumbersExterminator numbersTest1 = new OddNumbersExterminator();
+        OddNumbersExterminator exterminator1 = new OddNumbersExterminator();
         ArrayList<Integer> number = new ArrayList<>();
-        ArrayList<Integer> odd = new ArrayList<>();
         //When
-        numbersTest1.exterminate(number,odd);
+        ArrayList result = exterminator1.exterminate(number);
         //Than
-        Assert.assertTrue(odd.isEmpty());
+        Assert.assertTrue(result.isEmpty());
 
     }
 
@@ -31,21 +30,21 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList()
     {
         //Given
-        OddNumbersExterminator numbersTest2 = new OddNumbersExterminator();
+        OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
         ArrayList<Integer> number = new ArrayList<>();
         number.add(1);
         number.add(2);
         number.add(3);
         number.add(4);
         number.add(5);
-        ArrayList<Integer> odd = new ArrayList<>();
         //When
-        numbersTest2.exterminate(number,odd);
+        exterminator2.exterminate(number);
         ArrayList<Integer> oddNumbers = new ArrayList<>();
         oddNumbers.add(2);
         oddNumbers.add(4);
+        ArrayList result = exterminator2.exterminate(number);
         //Than
-        Assert.assertEquals(oddNumbers,odd);
+        Assert.assertEquals(oddNumbers,result);
     }
 
     @After
