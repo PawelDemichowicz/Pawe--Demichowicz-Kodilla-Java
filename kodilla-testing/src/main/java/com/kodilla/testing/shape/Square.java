@@ -6,7 +6,7 @@ public class Square implements Shape
     private String name = "Square";
     private double side;
 
-    public Square(String name, double side) {
+    public Square(double side) {
         this.side = side;
     }
 

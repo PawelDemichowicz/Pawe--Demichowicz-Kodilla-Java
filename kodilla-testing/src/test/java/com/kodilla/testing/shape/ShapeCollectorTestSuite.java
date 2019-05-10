@@ -34,9 +34,12 @@ public class ShapeCollectorTestSuite {
 
         //When
         theShape.addFigure(circle);
+        Shape retrivedCircle;
+        retrivedCircle = theShape.getFigure(0);
 
         //Then
         Assert.assertEquals(1,theShape.getShapes().size());
+        Assert.assertEquals(retrivedCircle,circle);
     }
 
     @Test

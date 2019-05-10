@@ -7,7 +7,7 @@ public class Triangle implements Shape
     private double side;
     private double height;
 
-    public Triangle(String name, double side, double height) {
+    public Triangle(double side, double height) {
         this.side = side;
         this.height = height;
     }
