@@ -1,41 +1,48 @@
 package com.kodilla.testing.shape;
 
-import java.util.Objects;
-
 public class Triangle implements Shape
 {
 
-    private String name;
-    private double field;
+    private String name = "Triangle";
+    private double side;
+    private double height;
 
-    public Triangle(String name, double field) {
-        this.name = name;
-        this.field = field;
+    public Triangle(String name, double side, double height) {
+        this.side = side;
+        this.height = height;
     }
 
-    @Override
     public String getShapeName()
     {
-        return name;
+       return name;
     }
 
-    @Override
-    public double getField()
-    {
-        return field;
+    public double getField() {
+        return side * height * 0.5;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Triangle triangle = (Triangle) o;
-        return Double.compare(triangle.field, field) == 0 &&
-                name.equals(triangle.name);
+
+        if (Double.compare(triangle.side, side) != 0) return false;
+        if (Double.compare(triangle.height, height) != 0) return false;
+        return name != null ? name.equals(triangle.name) : triangle.name == null;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, field);
+        int result;
+        long temp;
+        result = name != null ? name.hashCode() : 0;
+        temp = Double.doubleToLongBits(side);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(height);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }

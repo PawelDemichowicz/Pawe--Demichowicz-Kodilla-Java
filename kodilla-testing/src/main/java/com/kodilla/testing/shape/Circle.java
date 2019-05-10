@@ -1,11 +1,15 @@
 package com.kodilla.testing.shape;
 
-import java.util.Objects;
-
 public class Circle implements Shape
 {
-    private String name;
-    private double field;
+    private String name = "Circle";
+    private double radius;
+
+    public Circle(double radius)
+    {
+        this.radius = radius;
+
+    }
 
     @Override
     public String getShapeName()
@@ -16,20 +20,28 @@ public class Circle implements Shape
     @Override
     public double getField()
     {
-        return field;
+        return radius*radius*Math.PI;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Circle circle = (Circle) o;
-        return Double.compare(circle.field, field) == 0 &&
-                name.equals(circle.name);
+
+        if (Double.compare(circle.radius, radius) != 0) return false;
+        return name != null ? name.equals(circle.name) : circle.name == null;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, field);
+        int result;
+        long temp;
+        result = name != null ? name.hashCode() : 0;
+        temp = Double.doubleToLongBits(radius);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }
