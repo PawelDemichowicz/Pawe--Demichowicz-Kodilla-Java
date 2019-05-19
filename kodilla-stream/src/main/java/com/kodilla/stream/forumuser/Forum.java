@@ -10,12 +10,12 @@ public class Forum {
 
     public Forum()
     {
-        users.add(new ForumUser(123,"user1",'m', LocalDate.of(1979,2,3),101));
+        users.add(new ForumUser(123,"user1",'m', LocalDate.of(1999,5,19),101));
         users.add(new ForumUser(124,"user2",'m', LocalDate.of(1985,7,30),3));
         users.add(new ForumUser(125,"user3",'m', LocalDate.of(1987,5,13),59));
         users.add(new ForumUser(126,"user4",'m', LocalDate.of(1992,10,9),87));
         users.add(new ForumUser(127,"user5",'m', LocalDate.of(2001,9,14),264));
-        users.add(new ForumUser(128,"user6",'m', LocalDate.of(1973,12,15),36));
+        users.add(new ForumUser(128,"user6",'m', LocalDate.of(2009,12,15),36));
 
     }
 
