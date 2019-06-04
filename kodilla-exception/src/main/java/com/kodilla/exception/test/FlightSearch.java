@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class FlightSearch {
 
-    public void findFight(Flight flight) throws RouteNotFoundException
+    public boolean findFight(Flight flight) throws RouteNotFoundException
     {
         Map<String,Boolean> flights = new HashMap<>();
 
@@ -14,17 +14,16 @@ public class FlightSearch {
         flights.put("New York", false);
         flights.put("Moscow", true);
 
-        for(Map.Entry<String,Boolean> entry : flights.entrySet()) {
-
-            if(entry.getKey().equals(flight.getArrivalAirport())) {
-                if (entry.getValue()) {
-                    System.out.println("You can flight to: " + entry.getKey());
-                } else{
-                    System.out.println("You cant flight to: " + entry.getKey());
-                }
-            } else {
-                throw new RouteNotFoundException("Airport is unavailable");
+        if(flights.containsKey(flight.getArrivalAirport())){
+            if(flights.get(flight.getArrivalAirport())){
+                System.out.println("You can flight to " + flight.getArrivalAirport());
+            }else{
+                System.out.println("You cant flight to " + flight.getArrivalAirport() + ", please check another Airport");
             }
+            return flights.get(flight.getArrivalAirport());
+        } else {
+            throw  new RouteNotFoundException();
         }
+
     }
 }
