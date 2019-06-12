@@ -10,15 +10,17 @@ public class NoAntibioticsMeat implements Processor{
     public OrderDto process(){
         double quantityKG = 1.0;
         getProducts();
+        System.out.println(name);
         if(quantityKG <= getProducts().get(0).getAvailableQuantity()){
-            orderForPayment();
+            payForOrder();
             sendingOrderToProducer();
             confirmOrder();
+            supply();
             return new OrderDto(1,name,true,getProducts());
         }else {
             System.out.println("Products isnt available");
+            return new OrderDto(0, name, false, getProducts());
         }
-        System.out.println("Please visit our site: " + contactProducer + "\n" + "Greets " + name + " team");
     }
 
 

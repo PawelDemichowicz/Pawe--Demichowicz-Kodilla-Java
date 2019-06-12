@@ -8,16 +8,17 @@ public class GmoFreeShop implements Processor{
 
     @Override
     public OrderDto process(){
-        double quantityKG = 1.0;
         getProducts();
-        if(orderIsAvailable()){
-            orderForPayment();
+        if(isOrderAvailable()){
+            System.out.println(name);
+            payForOrder();
             sendingOrderToProducer();
             confirmOrder();
-            return new OrderDto(2,name,true,getProducts());
+            supply();
+            return new OrderDto(2,name,true, getProducts());
         } else{
             System.out.println("I'am sorry but your order is impossible to execution");
+            return  new OrderDto(0,name,false,getProducts());
         }
-        System.out.println("Please visit our site: " + contactProducer + "\n" + "Greets " + name + " team");
     }
 }

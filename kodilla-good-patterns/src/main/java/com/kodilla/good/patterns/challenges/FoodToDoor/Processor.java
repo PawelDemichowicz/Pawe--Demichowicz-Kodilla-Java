@@ -9,22 +9,20 @@ public interface Processor {
 
     default List<Product> getProducts(){
 
-        System.out.println("Show list of products from server");
         List<Product> products = new ArrayList<>();
-        products.add(new Product("AA","BB","CC",5,2));
+        products.add(new Product("AA","BB","CC",5,1));
         return products;
     }
 
-    default String supply(){
-        final String nameSupplier = "Food To Door deliver your order.";
-        return nameSupplier;
+    default void supply(){
+        System.out.println("Food To Door will deliver your order.");
     }
-    default boolean orderIsAvailable(){
+    default boolean isOrderAvailable(){
         return true;
     }
 
     default void confirmOrder(){
-        System.out.println("Food To Door:" + "\n" + "Confirm your order.");
+        System.out.println("Food To Door: Confirm your order.");
     }
 
     default void sendingOrderToProducer(){
@@ -32,7 +30,7 @@ public interface Processor {
     }
 
 
-    default void orderForPayment(){
+    default void payForOrder(){
         System.out.println("Please pay for your order.");
     }
 

@@ -6,6 +6,7 @@ public class NewProducers {
 
         GmoFreeShop gmoFreeShop = new GmoFreeShop();
         gmoFreeShop.process();
+        System.out.println();
         NoAntibioticsMeat noAntibioticsMeat = new NoAntibioticsMeat();
         noAntibioticsMeat.process();
     }
