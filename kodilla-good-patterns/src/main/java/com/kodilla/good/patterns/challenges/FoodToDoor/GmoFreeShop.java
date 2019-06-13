@@ -1,13 +1,11 @@
 package com.kodilla.good.patterns.challenges.FoodToDoor;
 
-public class GmoFreeShop implements Processor{
+public class GmoFreeShop extends Processor{
 
     public final String name = "GMO Free Shop";
-    public final String timeDeliver = "Deliver time: two workdays";
-    public final String contactProducer = "www.gmofreeshop.com";
 
     @Override
-    public OrderDto process(){
+    public OrderDto process(){      //Processing order in shop
         getProducts();
         if(isOrderAvailable()){
             System.out.println(name);

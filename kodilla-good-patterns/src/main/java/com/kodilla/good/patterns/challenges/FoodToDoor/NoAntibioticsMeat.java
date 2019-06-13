@@ -1,13 +1,11 @@
 package com.kodilla.good.patterns.challenges.FoodToDoor;
 
-public class NoAntibioticsMeat implements Processor{
+public class NoAntibioticsMeat extends Processor{
 
     public final String name = "No Antibiotics Meat";
-    public final String timeDeliver = "Deliver time: two workdays";
-    public final String contactProducer = "www.noantibioticsmeat.com";
 
     @Override
-    public OrderDto process(){
+    public OrderDto process(){          //Processing order in shop
         double quantityKG = 1.0;
         getProducts();
         System.out.println(name);
