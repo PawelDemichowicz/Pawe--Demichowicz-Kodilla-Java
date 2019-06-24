@@ -6,12 +6,16 @@ public class Logger {
     private static Logger logger = null;
     private String lastLog = "";
 
-    private Logger(){
-
+    private Logger() {
     }
-    public static Logger getInstance(){
-        if(logger == null){
-            logger = new Logger();
+
+    public static Logger getInstance() {
+        if (logger == null) {
+            synchronized (Logger.class) {
+                if (logger == null) {
+                    logger = new Logger();
+                }
+            }
         }
         return logger;
     }
