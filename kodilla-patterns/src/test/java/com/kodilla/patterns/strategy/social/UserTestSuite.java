@@ -6,7 +6,7 @@ import org.junit.Test;
 public class UserTestSuite {
 
     @Test
-    public void testDefaultSocialMedia(){
+    public void testDefaultSharingStrategies(){
 
         //Given
         User jacob = new Millenials("Jacob");
@@ -29,7 +29,7 @@ public class UserTestSuite {
     }
 
     @Test
-    public void testChangeSocialMedia(){
+    public void testIndividualSharingStrategy(){
 
         //Given
         User jacob = new Millenials("Jacob");
