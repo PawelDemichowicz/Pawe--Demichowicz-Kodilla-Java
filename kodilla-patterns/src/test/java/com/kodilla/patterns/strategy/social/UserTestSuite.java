@@ -37,7 +37,7 @@ public class UserTestSuite {
         //When
         String jacobMedia = jacob.sharePost();
         System.out.println("Old social media: " + jacobMedia);
-        jacob.changeSocialMedia(new TwitterPublisher());
+        jacob.setSocialMedia(new TwitterPublisher());
         jacobMedia = jacob.sharePost();
         System.out.println("New social media: " + jacobMedia);
 

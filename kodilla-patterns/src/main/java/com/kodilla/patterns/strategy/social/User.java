@@ -17,7 +17,7 @@ public class User {
         return socialPublisher.share();
     }
 
-    public void changeSocialMedia(SocialPublisher socialPublisher){
+    public void setSocialMedia(SocialPublisher socialPublisher){
         this.socialPublisher = socialPublisher;
     }
 }
