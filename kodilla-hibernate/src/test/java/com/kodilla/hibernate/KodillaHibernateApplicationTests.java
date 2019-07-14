@@ -11,6 +11,7 @@ public class KodillaHibernateApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("test");
     }
 
 }
