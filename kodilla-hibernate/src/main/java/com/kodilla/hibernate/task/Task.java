@@ -52,7 +52,7 @@ public final class Task {
         return taskFinancialDetails;
     }
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "TASKLIST_ID")
     public TaskList getTaskList() {
         return taskList;
