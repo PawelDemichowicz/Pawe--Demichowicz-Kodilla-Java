@@ -26,13 +26,13 @@ public class InvoiceDaoTestSuite {
     private ProductDao productDao;
 
     @Test
-    public void testInvoiceDaoSave(){
+    public void testInvoiceDaoSave() {
         //Given
         Product milk = new Product("Milk");
         Product flour = new Product("Flour");
 
-        Item item = new Item(new BigDecimal(3),200,new BigDecimal(600));
-        Item item1 = new Item(new BigDecimal(5),150, new BigDecimal(750));
+        Item item = new Item(new BigDecimal(3), 200, new BigDecimal(600));
+        Item item1 = new Item(new BigDecimal(5), 150, new BigDecimal(750));
         Item item2 = new Item(new BigDecimal(4), 100, new BigDecimal(400));
 
         Invoice invoice = new Invoice("01/2019");
@@ -64,12 +64,9 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, invId);
 
         //CleanUp
-       // productDao.deleteById(milkId);
-       // productDao.deleteById(flourId);
-       // itemDao.deleteById(itemId);
-       // itemDao.deleteById(item1Id);
-       // itemDao.deleteById(item2Id);
-      //  invoiceDao.deleteById(milkId);
+        productDao.deleteById(milkId);
+        productDao.deleteById(flourId);
+        invoiceDao.deleteById(invId);
 
     }
 }
