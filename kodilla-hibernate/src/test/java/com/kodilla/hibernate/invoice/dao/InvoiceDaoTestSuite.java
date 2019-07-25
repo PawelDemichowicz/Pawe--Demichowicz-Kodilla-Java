@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,16 +32,19 @@ public class InvoiceDaoTestSuite {
         Product milk = new Product("Milk");
         Product flour = new Product("Flour");
 
-        Item item = new Item(new BigDecimal(3), 200, new BigDecimal(600));
+        Item item3 = new Item(new BigDecimal(3), 200, new BigDecimal(600));
         Item item1 = new Item(new BigDecimal(5), 150, new BigDecimal(750));
         Item item2 = new Item(new BigDecimal(4), 100, new BigDecimal(400));
 
         Invoice invoice = new Invoice("01/2019");
 
-        item.setProduct(milk);
+        item3.setInvoice(invoice);
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setProduct(milk);
         item1.setProduct(flour);
         item2.setProduct(milk);
-        invoice.getItems().add(item);
+        invoice.getItems().add(item3);
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
 
@@ -50,13 +54,6 @@ public class InvoiceDaoTestSuite {
         productDao.save(flour);
         int flourId = flour.getId();
 
-        itemDao.save(item);
-        int itemId = item.getId();
-        itemDao.save(item1);
-        int item1Id = item1.getId();
-        itemDao.save(item2);
-        int item2Id = item2.getId();
-
         invoiceDao.save(invoice);
         int invId = invoice.getId();
 
@@ -64,9 +61,9 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, invId);
 
         //CleanUp
-        productDao.deleteById(milkId);
-        productDao.deleteById(flourId);
-        invoiceDao.deleteById(invId);
+        //productDao.deleteById(milkId);
+        //productDao.deleteById(flourId);
+        //invoiceDao.deleteById(invId);
 
     }
 }
