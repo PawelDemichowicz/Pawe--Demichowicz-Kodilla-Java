@@ -5,20 +5,19 @@ import java.util.List;
 
 public class FlightsData {
 
-    private List<Flights> flightsList = new ArrayList<>();
+    private final List<Flights> flights;
+
+    public FlightsData() {
+        this.flights = new ArrayList<>();
+        flights.add(new Flights("Wroclaw", "Berlin", "London"));
+        flights.add(new Flights("Wroclaw", "Moscow", "Singapure"));
+        flights.add(new Flights("Wroclaw", "Frankfurt", "Reykjavik"));
+        flights.add(new Flights("Warsaw", "Prague", "Vienna"));
+        flights.add(new Flights("Warsaw", "Cracow", "Zagreb"));
+    }
 
     public List<Flights> getFlights() {
-
-        flightsList.add(new Flights("Wroclaw", "Berlin", "London"));
-        flightsList.add(new Flights("Wroclaw", "Moscow", "Singapure"));
-        flightsList.add(new Flights("Wroclaw", "Frankfurt", "Reykjavik"));
-        flightsList.add(new Flights("Warsaw", "Prague", "Vienna"));
-        flightsList.add(new Flights("Warsaw", "Cracow", "Zagreb"));
-
-        return flightsList;
+        return flights;
     }
 
-    public List<Flights> getFlightsList() {
-        return flightsList;
-    }
 }

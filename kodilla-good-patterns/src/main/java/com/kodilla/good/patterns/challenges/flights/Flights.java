@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Flights {
 
-    public String from;
-    public String to;
-    public String through;
+    private String from;
+    private String to;
+    private String through;
 
     public Flights(String from, String through, String to) {
         this.from = from;

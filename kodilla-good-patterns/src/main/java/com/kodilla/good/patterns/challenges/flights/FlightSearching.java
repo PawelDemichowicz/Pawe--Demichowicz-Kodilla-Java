@@ -6,38 +6,43 @@ import java.util.stream.Collectors;
 public class FlightSearching {
 
     private FlightsData flightsData;
+    private static final String ARRIVAL = "Arrival";
+    private static final String DEPARTURE = "Departure";
+    private static final String CHANGE = "Change";
+
 
     public FlightSearching(final FlightsData flightsData) {
         this.flightsData = flightsData;
     }
 
-    public List<Flights> searchingByArrival(String arrival) {
+    public void searchingResult(String destination, String airPort) {
+
+        if (ARRIVAL.equals(destination)) {
+            System.out.println(searchingByArrival(airPort));
+        } else if (DEPARTURE.equals(destination)) {
+            System.out.println(searchingByDeparture(airPort));
+        } else if (CHANGE.equals(destination)) {
+            System.out.println(searchingByChange(airPort));
+        }
+    }
+
+
+    private List<Flights> searchingByArrival(String arrival) {
         return flightsData.getFlights().stream()
                 .filter(f -> f.getTo().equals(arrival))
                 .collect(Collectors.toList());
     }
 
-    public List<Flights> searchingByDeparture(String departure) {
+    private List<Flights> searchingByDeparture(String departure) {
         return flightsData.getFlights().stream()
                 .filter(f -> f.getFrom().equals(departure))
                 .collect(Collectors.toList());
 
     }
 
-    public List<Flights> searchingByChange(String change) {
-       return flightsData.getFlights().stream()
+    private List<Flights> searchingByChange(String change) {
+        return flightsData.getFlights().stream()
                 .filter(f -> f.getThrough().equals(change))
                 .collect(Collectors.toList());
-    }
-
-    public void searchingResult(String destination, String airPort) {
-
-        if ("Arrival".equals(destination)) {
-            System.out.println(searchingByArrival(airPort));
-        } else if ("Departure".equals(destination)) {
-            System.out.println(searchingByDeparture(airPort));
-        } else if ("Change".equals(destination)) {
-            System.out.println(searchingByChange(airPort));
-        }
     }
 }

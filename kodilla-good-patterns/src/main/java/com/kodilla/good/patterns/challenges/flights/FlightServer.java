@@ -12,9 +12,8 @@ public class FlightServer {
         System.out.println("Give how you want looking for flights(Arrival,Departure,Change)");
         String destination = scanner.nextLine();
 
-        Scanner scanner1 = new Scanner(System.in);
         System.out.println("Please give Airport");
-        String airPort = scanner1.nextLine();
+        String airPort = scanner.nextLine();
         flightSearching.searchingResult(destination,airPort);
 
     }
