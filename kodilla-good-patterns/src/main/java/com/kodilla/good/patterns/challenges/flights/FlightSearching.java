@@ -5,12 +5,11 @@ import java.util.stream.Collectors;
 
 public class FlightSearching {
 
-    private FlightsData flightsData;
     private static final String ARRIVAL = "Arrival";
     private static final String DEPARTURE = "Departure";
     private static final String CHANGE = "Change";
-
-
+    private FlightsData flightsData;
+    
     public FlightSearching(final FlightsData flightsData) {
         this.flightsData = flightsData;
     }
@@ -37,7 +36,6 @@ public class FlightSearching {
         return flightsData.getFlights().stream()
                 .filter(f -> f.getFrom().equals(departure))
                 .collect(Collectors.toList());
-
     }
 
     private List<Flights> searchingByChange(String change) {
