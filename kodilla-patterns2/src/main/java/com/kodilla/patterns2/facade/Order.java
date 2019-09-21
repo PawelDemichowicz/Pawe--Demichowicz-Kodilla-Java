@@ -13,10 +13,10 @@ public class Order {
     private boolean isVerified = false;
     private boolean isSubmitted = false;
 
-    public Order(ProductService productService, Long orderId, Long userId) {
-        this.productService = productService;
+    public Order(Long orderId, Long userId, ProductService productService) {
         this.orderId = orderId;
         this.userId = userId;
+        this.productService = productService;
     }
 
     public BigDecimal calculateValue(){
