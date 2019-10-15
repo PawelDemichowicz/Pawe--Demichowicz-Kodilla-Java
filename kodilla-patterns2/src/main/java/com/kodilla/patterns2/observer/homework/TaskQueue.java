@@ -44,4 +44,8 @@ public class TaskQueue implements Observable {
     public String getKodillaUser() {
         return kodillaUser;
     }
+
+    public List<Observer> getObservers() {
+        return observers;
+    }
 }
