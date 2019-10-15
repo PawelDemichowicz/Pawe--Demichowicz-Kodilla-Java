@@ -10,15 +10,15 @@ public class Statistics implements BookStatistics {
         if (books.size() == 0) {
             return 0;
         }
-        int sum = 0;
+        double sum = 0;
         for (Map.Entry<BookSignature, BookB> entry : books.entrySet()) {
             sum += entry.getValue().getYearPublication();
         }
-        return sum / books.size();
+        return (int)Math.round(sum / books.size());
     }
 
     @Override
-    public int medianaPublicationYear(Map<BookSignature, BookB> books) {
+    public int medianPublicationYear(Map<BookSignature, BookB> books) {
         if (books.size() == 0) {
             return 0;
         }
